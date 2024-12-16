@@ -64,7 +64,7 @@ function App() {
       parseInt(weight, 10),
     ];
 
-    setMapEdgeDetails([...edgeDetails, newEdge]);
+    setMapEdgeDetails([...mapEdgeDetails, newEdge]);
 
     setEdgeDetails([...edgeDetails, newEdge, reverseEdge]);
 
