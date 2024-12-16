@@ -260,9 +260,9 @@ function App() {
             </div>
           </div>
 
-          <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10">
-            <div className="overflow-x-auto overflow-y-auto bg-white p-6 rounded-lg shadow-lg w-full h-full">
-              <table className="w-full table-auto text-sm border-separate border-spacing-2">
+          <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10 ">
+            <div className="overflow-x-auto overflow-y-auto bg-white p-6 rounded-lg shadow-lg w-full h-full sm:max-h-[500px] ">
+              <table className="w-full table-auto text-sm border-separate border-spacing-2 ">
                 <thead>
                   <tr className="bg-blue-500 text-white rounded-md">
                     <th className="py-3 px-4 text-center rounded-tl-lg">
@@ -352,7 +352,7 @@ function App() {
           </div>
 
           <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10 ">
-            <div className=" overflow-x-auto overflow-y-auto bg-white p-6 rounded-lg shadow-lg w-full h-full">
+            <div className=" overflow-x-auto overflow-y-auto bg-white p-6 rounded-lg shadow-lg w-full h-full sm:max-h-[500px]">
               <div className="flex justify-center">
                 <span className="text-black text-lg">
                   Minimum distance from Node {source}
