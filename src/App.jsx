@@ -207,7 +207,7 @@ function App() {
               Back
             </button>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-300 w-full sm:m-[90px] m-[20px] mt-[75px] ">
+            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-300 w-full sm:m-[90px] m-[20px] mt-[30px] ">
               <h1 className="text-2xl font-semibold  mb-2 sm:mb-4 text-center text-gray-800">
                 Give Edge details
               </h1>
