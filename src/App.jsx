@@ -142,7 +142,7 @@ function App() {
     <div className="h-screen bg-gray-100 flex flex-col sm:flex-row">
       {check1 && (
         <>
-          <div className="h-1/2 sm:w-1/2 sm:h-screen bg-blue-500 flex items-center justify-center text-white p-10">
+          <div className="h-3/2 sm:w-1/2 sm:h-screen bg-blue-500 flex items-center justify-center text-white p-10">
             <div className="text-center">
               <h1 className="text-3xl font-bold mb-4">
                 Distance vector routing
@@ -199,7 +199,7 @@ function App() {
           >
             Reset
           </button>
-          <div className="relative h-2/5 sm:w-1/2 sm:h-screen flex items-center justify-center h-screen bg-blue-500">
+          <div className="relative h-3/6 sm:w-1/2 sm:h-screen flex items-center justify-center bg-blue-500">
             <button
               className="absolute top-4 left-4 bg-white text-black py-2 px-6 rounded-lg hover:bg-gray transition duration-300"
               onClick={handleFirstBack}
@@ -207,7 +207,7 @@ function App() {
               Back
             </button>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-300 w-full sm:m-[90px] m-[20px] mt-[30px] ">
+            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-300 w-full sm:m-[90px] m-[20px] mt-[130px] ">
               <h1 className="text-2xl font-semibold  mb-2 sm:mb-4 text-center text-gray-800">
                 Give Edge details
               </h1>
@@ -261,7 +261,7 @@ function App() {
           </div>
 
           <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10">
-            <div className="overflow-x-auto bg-white p-6 rounded-lg shadow-lg w-full">
+            <div className="overflow-x-auto overflow-y-auto bg-white p-6 rounded-lg shadow-lg w-full h-full">
               <table className="w-full table-auto text-sm border-separate border-spacing-2">
                 <thead>
                   <tr className="bg-blue-500 text-white rounded-md">
@@ -310,7 +310,7 @@ function App() {
           >
             Reset
           </button>
-          <div className="relative h-2/5 sm:w-1/2 sm:h-screen flex items-center justify-center h-screen bg-blue-500">
+          <div className="relative h-3/6 sm:w-1/2 sm:h-screen flex items-center justify-center h-screen bg-blue-500">
             <button
               className="absolute top-4 left-4 bg-white text-black py-2 px-6 rounded-lg hover:bg-gray transition duration-300"
               onClick={handleSecondBack}
@@ -351,8 +351,8 @@ function App() {
             </div>
           </div>
 
-          <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10">
-            <div className="overflow-x-auto bg-white p-6 rounded-lg shadow-lg w-full">
+          <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10 ">
+            <div className=" overflow-x-auto overflow-y-auto bg-white p-6 rounded-lg shadow-lg w-full h-full">
               <div className="flex justify-center">
                 <span className="text-black text-lg">
                   Minimum distance from Node {source}
