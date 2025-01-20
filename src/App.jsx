@@ -64,7 +64,7 @@ function App() {
       parseInt(weight, 10),
     ];
 
-    setMapEdgeDetails([...edgeDetails, newEdge]);
+    setMapEdgeDetails([...mapEdgeDetails, newEdge]);
 
     setEdgeDetails([...edgeDetails, newEdge, reverseEdge]);
 
@@ -102,13 +102,21 @@ function App() {
 
   const [source, setSource] = useState();
   const [result, setResult] = useState([]);
+  const [count, setCount] = useState(0);
 
-  const handleCalculate = () => {
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  // Bellman ford algorithm
+
+  const handleCalculate = async () => {
     let dist = new Array(parseInt(nodeCount, 10)).fill(1e8);
     console.log(dist);
     dist[source] = 0;
 
     for (let i = 0; i < nodeCount; i++) {
+      setCount((prevCount) => prevCount + 1);
       for (let edge of edgeDetails) {
         let u = edge[0];
         let v = edge[1];
@@ -119,6 +127,9 @@ function App() {
           dist[v] = dist[u] + wt;
         }
       }
+
+      setResult([...dist]);
+      await sleep(2000);
     }
 
     console.log(dist);
@@ -136,13 +147,14 @@ function App() {
   const handleReset2 = () => {
     setSource("");
     setResult([]);
+    setCount(0);
   };
 
   return (
     <div className="h-screen bg-gray-100 flex flex-col sm:flex-row">
       {check1 && (
         <>
-          <div className="h-1/2 sm:w-1/2 sm:h-screen bg-blue-500 flex items-center justify-center text-white p-10">
+          <div className="h-3/2 sm:w-1/2 sm:h-screen bg-blue-500 flex items-center justify-center text-white p-10">
             <div className="text-center">
               <h1 className="text-3xl font-bold mb-4">
                 Distance vector routing
@@ -199,7 +211,7 @@ function App() {
           >
             Reset
           </button>
-          <div className="relative h-2/5 sm:w-1/2 sm:h-screen flex items-center justify-center h-screen bg-blue-500">
+          <div className="relative h-3/6 sm:w-1/2 sm:h-screen flex items-center justify-center bg-blue-500">
             <button
               className="absolute top-4 left-4 bg-white text-black py-2 px-6 rounded-lg hover:bg-gray transition duration-300"
               onClick={handleFirstBack}
@@ -260,9 +272,9 @@ function App() {
             </div>
           </div>
 
-          <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10">
-            <div className="overflow-x-auto bg-white p-6 rounded-lg shadow-lg w-full">
-              <table className="w-full table-auto text-sm border-separate border-spacing-2">
+          <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10 ">
+            <div className="overflow-x-auto overflow-y-auto bg-white p-6 rounded-lg shadow-lg w-full h-full sm:max-h-[500px] ">
+              <table className="w-full table-auto text-sm border-separate border-spacing-2 ">
                 <thead>
                   <tr className="bg-blue-500 text-white rounded-md">
                     <th className="py-3 px-4 text-center rounded-tl-lg">
@@ -310,7 +322,7 @@ function App() {
           >
             Reset
           </button>
-          <div className="relative h-2/5 sm:w-1/2 sm:h-screen flex items-center justify-center h-screen bg-blue-500">
+          <div className="relative h-3/6 sm:w-1/2 sm:h-screen flex items-center justify-center h-screen bg-blue-500">
             <button
               className="absolute top-4 left-4 bg-white text-black py-2 px-6 rounded-lg hover:bg-gray transition duration-300"
               onClick={handleSecondBack}
@@ -351,12 +363,15 @@ function App() {
             </div>
           </div>
 
-          <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10">
-            <div className="overflow-x-auto bg-white p-6 rounded-lg shadow-lg w-full">
+          <div className="h-1/2 sm:w-1/2 sm:h-full bg-white-600 flex items-center justify-center text-white p-10 ">
+            <div className=" overflow-x-auto overflow-y-auto bg-white p-6 rounded-lg shadow-lg w-full h-full sm:max-h-[500px]">
               <div className="flex justify-center">
                 <span className="text-black text-lg">
                   Minimum distance from Node {source}
                 </span>
+              </div>
+              <div className="flex justify-center">
+                <span className="text-black text-lg">Iteration {count}</span>
               </div>
               <table className="w-full table-auto text-sm border-separate border-spacing-2">
                 <thead>
